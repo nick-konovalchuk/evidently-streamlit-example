@@ -13,6 +13,7 @@ st.title("Data drift")
 min_date = datetime(2023, 1, 1)
 max_date = datetime(2024, 1, 1)
 if st.sidebar.button("Refresh") or not os.path.exists("data/data.pq"):
+    os.makedirs("data", exist_ok=True)
     generate_data()
 with st.sidebar.form("form"):
     d1, d2 = st.date_input(
